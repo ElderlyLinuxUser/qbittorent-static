@@ -45,7 +45,7 @@ jobs:
         tar -xzf boost_1_87_0.tar.gz
         cd boost_1_87_0
         ./bootstrap.sh
-        ./b2 --build-type=complete link=static runtime-link=static install
+        ./b2  link=static runtime-link=static install
 
     - name: Build and install libtorrent
       run: |
