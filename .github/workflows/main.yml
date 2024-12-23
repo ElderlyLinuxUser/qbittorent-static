@@ -46,7 +46,7 @@ jobs:
         cd boost_1_81_0
         ./bootstrap.sh
         ./b2  clean
-        ./b2  link=static --with-system --with-filesystem --with-thread --with-asio runtime-link=static install --prefix=/usr/local/boost
+        ./b2  link=static --with-system --with-filesystem --with-thread --with-asio runtime-link=static install --prefix=/usr/local/lib/boost
 
     - name: Build and install libtorrent
       run: |
