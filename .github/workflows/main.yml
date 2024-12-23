@@ -46,13 +46,13 @@ jobs:
         cd boost_1_81_0
         ./bootstrap.sh
         ./b2  clean
-        sudo ./b2  link=static runtime-link=static install --prefix=/usr/local/lib/boost
+        sudo ./b2  link=static runtime-link=static install --prefix=/usr/local/boost
 
     - name: Build and install libtorrent
       run: |
         git clone --recursive https://github.com/arvidn/libtorrent.git
         cd libtorrent
-        git checkout libtorrent-2_0_10  # Укажите нужную версию
+        git checkout libtorrent-2_0  # Укажите нужную версию
         ./autotool.sh
         ./configure --enable-static --disable-shared --with-boost=/usr/local/boost
         make -j$(nproc)
