@@ -41,11 +41,12 @@ jobs:
 
     - name: Build and install Boost
       run: |
-        wget https://boostorg.jfrog.io/artifactory/main/release/1.87.0/source/boost_1_87_0.tar.gz
-        tar -xzf boost_1_87_0.tar.gz
-        cd boost_1_87_0
+        wget https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz
+        tar -xzf boost_1_81_0.tar.gz
+        cd boost_1_81_0
         ./bootstrap.sh
-        ./b2  link=static runtime-link=static install --prefix=/usr/local/boost
+        ./b2  clean
+        ./b2  link=static --with-system runtime-link=static install --prefix=/usr/local/boost
 
     - name: Build and install libtorrent
       run: |
