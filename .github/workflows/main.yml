@@ -45,7 +45,7 @@ jobs:
         tar -xzf boost_1_87_0.tar.gz
         cd boost_1_87_0
         ./bootstrap.sh
-        ./b2  link=static runtime-link=static install
+        ./b2  link=static runtime-link=static install --prefix=/usr/local/boost
 
     - name: Build and install libtorrent
       run: |
@@ -53,7 +53,7 @@ jobs:
         cd libtorrent
         git checkout libtorrent-2_0_10  # Укажите нужную версию
         ./autotool.sh
-        ./configure --enable-static --disable-shared --with-boost=/usr/local
+        ./configure --enable-static --disable-shared --with-boost=/usr/local/boost
         make -j$(nproc)
         sudo make install
 
