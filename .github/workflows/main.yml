@@ -23,7 +23,7 @@ jobs:
 
     - name: Build and install Zlib
       run: |
-        wget https://zlib.net/zlib-1.3.1.tar.gz
+        wget -q https://zlib.net/zlib-1.3.1.tar.gz
         tar -xzf zlib-1.3.1.tar.gz
         cd zlib-1.3.1
         ./configure --static
@@ -32,7 +32,7 @@ jobs:
 
     - name: Build and install OpenSSL
       run: |
-        wget https://www.openssl.org/source/openssl-3.3.2.tar.gz
+        wget -q https://www.openssl.org/source/openssl-3.3.2.tar.gz
         tar -xzf openssl-3.3.2.tar.gz
         cd openssl-3.3.2
         ./config no-shared --prefix=/usr/local/openssl
@@ -41,12 +41,12 @@ jobs:
 
     - name: Build and install Boost
       run: |
-        wget https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz
+        wget -q https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz
         tar -xzf boost_1_81_0.tar.gz
         cd boost_1_81_0
         ./bootstrap.sh
         ./b2  clean
-        ./b2  link=static --with-system --with-filesystem --with-thread --with-asio runtime-link=static install --prefix=/usr/local/lib/boost
+        sudo ./b2  link=static --with-system --with-filesystem --with-thread --with-asio runtime-link=static install --prefix=/usr/local/lib/boost
 
     - name: Build and install libtorrent
       run: |
