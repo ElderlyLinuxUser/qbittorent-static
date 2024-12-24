@@ -19,7 +19,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential git cmake wget b2
+        sudo apt install -y build-essential git cmake wget libboost-dev
 
     - name: Build and install Zlib
       run: |
