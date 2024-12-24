@@ -19,7 +19,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential git cmake wget boost-build
+        sudo apt install -y build-essential git cmake wget 
 
     - name: Build and install Zlib
       run: |
@@ -44,7 +44,7 @@ jobs:
         wget -q https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz
         tar -xzf boost_1_81_0.tar.gz
         cd boost_1_81_0
-        ./bootstrap.sh
+        ./bootstrap.sh --prefix=/usr
         ./b2  clean
         sudo ./b2  link=static runtime-link=static install --prefix=/usr/local/boost
 
