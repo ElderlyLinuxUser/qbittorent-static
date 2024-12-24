@@ -45,6 +45,7 @@ jobs:
         tar -xzf boost_1_81_0.tar.gz
         cd boost_1_81_0
         ./bootstrap.sh
+        sudo cp b2 /usr/bin
         ./b2  clean
         sudo ./b2  link=static runtime-link=static install --prefix=/usr/local/boost
 
@@ -54,7 +55,8 @@ jobs:
         cd libtorrent
         # git checkout libtorrent-2.0.10  # Укажите нужную версию
         # ./autotool.sh
-        ./configure --enable-static --disable-shared --with-boost=/usr/local/boost
+        #./configure --enable-static --disable-shared --with-boost=/usr/local/boost
+        sudo b2 install --prefix=/usr/local/libtorrent
         make -j$(nproc)
         sudo make install
 
