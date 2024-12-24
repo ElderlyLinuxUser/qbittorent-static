@@ -19,7 +19,7 @@ jobs:
     - name: Install build dependencies
       run: |
         sudo apt update
-        sudo apt install -y build-essential git cmake wget
+        sudo apt install -y build-essential git cmake wget b2
 
     - name: Build and install Zlib
       run: |
@@ -45,7 +45,6 @@ jobs:
         tar -xzf boost_1_81_0.tar.gz
         cd boost_1_81_0
         ./bootstrap.sh
-        sudo cp ./b2 /usr/local/bin
         ./b2  clean
         sudo ./b2  link=static runtime-link=static install --prefix=/usr/local/boost
 
